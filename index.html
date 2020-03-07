@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <script>
+            function submitLed(form){
+                if(document.getElementById("check").checked){
+                    form.submit();
+                    console.log("uyay");
+                }
+            }
+        </script>
+        <style>
+            input{
+                display: block;
+                margin: 45px auto;
+
+            }
+            input[type="range"]{
+                -webkit-appearance: none;
+                background: lightgrey;
+                height: 55px;
+                border-radius: 25px;
+                width: 70%;
+            }
+            input[type="range"]::-webkit-slider-thumb{
+                -webkit-appearance: none;
+                width: 75px;
+                height: 75px;
+                border-radius: 50%;
+                background-color: green;
+            }
+            input[name="red"]::-webkit-slider-thumb{
+                background-color: red;   
+            }
+            input[name="green"]::-webkit-slider-thumb{
+                background-color: green;
+            }
+            input[name="blue"]::-webkit-slider-thumb{
+                background-color: blue;   
+            }
+
+            input[type="checkbox"]{
+                border-radius: 15px;
+                border: none; 
+                width: 45px;
+                height: 45px;
+                
+                    
+            }
+            input[type="submit"]{
+                border-radius: 15px;
+                border: none; 
+                width: 95px;
+                height: 45px;
+                color: white;
+                background-color: dimgrey;
+                font-size: 30px;    
+            }
+            
+        </style>    
+    </head>
+    <body>
+        <form onchange="submitLed(this)" action="/" method="get" target="_parent">
+            <input  type="range" min="0" max="1023" name="red" value ="0">
+            <input type="range" min="0" max="1023" name="green" value ="0">
+            <input type="range" min="0" max="1023" name="blue" value ="0">
+            <input type="checkbox" id="check" checked><!--Este checkbox es para ejecutar automaticamente el submit si algo ha cambiado-->
+            <input type="submit">
+        </form>    
+    </body>
+</html>

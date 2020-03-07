@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+</head>
+<body>
+   <script> 
+       function submitLed(form){ 
+            //PostLedLata
+            //form.submit(); 
+           $.ajax({   
+               type: 'GET',   
+               url: "/PostLedLata",   
+               data: $(form).serialize(),
+            }); 
+       } 
+   </script> 
+   <style> 
+       input{ 
+           display: block; 
+           margin: 15px auto; 
+       } 
+       input[type=  range  ]{ 
+           -webkit-appearance: none; 
+           background: lightgrey; 
+           height: 35px; 
+           border-radius: 15px; 
+           width: 70%; 
+       } 
+       input[type=  range  ]::-webkit-slider-thumb{ 
+           -webkit-appearance: none; 
+           width: 45px; 
+           height: 45px; 
+           border-radius: 50%; 
+           background-color: green; 
+       } 
+       input[name=  red  ]::-webkit-slider-thumb{ 
+           background-color: red;    
+       } 
+       input[name=  green  ]::-webkit-slider-thumb{ 
+           background-color: green; 
+       } 
+       input[name=  blue  ]::-webkit-slider-thumb{ 
+           background-color: blue;    
+       } 
+       input[type=  checkbox  ]{ 
+           border-radius: 15px; 
+           border: none;  
+           width: 25px; 
+           height: 25px; 
+
+
+       } 
+       input[type=  submit  ]{ 
+           border-radius: 15px; 
+           border: none;  
+           width: 85px; 
+           height: 35px; 
+           color: white; 
+           background-color: dimgrey; 
+           font-size: 20px;     
+       } 
+
+   </style>     
+
+   <form onchange=  submitLed(this)   action=  /   method=  post   > 
+       <input  type=  range   min=  0   max=  1023   name=  red   value=  REDLED   > 
+       <input type=  range   min=  0   max=  1023   name=  green   value=  GREENLED   > 
+       <input type=  range   min=  0   max=  1023   name=  blue   value=  BLUELED  > 
+       <input type=  submit  > 
+   </form>     
+</body>
+</html>
+
